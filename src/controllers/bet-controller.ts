@@ -11,7 +11,8 @@ export async function createBet(req: Request, res: Response): Promise<void>{
         res.sendStatus(httpStatus.CREATED);
         
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send("Sorry, something went wrong 😢");
     }
 }
 
@@ -21,7 +22,8 @@ export async function getBets(req: Request, res: Response): Promise<void>{
         res.status(httpStatus.OK).send(list.rows);
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send("Sorry, something went wrong 😢");
     }
 }
 
@@ -33,7 +35,8 @@ export async function updateBet(req: Request, res: Response): Promise<void>{
         res.sendStatus(httpStatus.CREATED);
         
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send("Sorry, something went wrong 😢");
     }
 }
 
@@ -45,6 +48,7 @@ export async function deleteBet(req: Request, res: Response): Promise<void>{
         res.sendStatus(httpStatus.OK);
         
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send("Sorry, something went wrong 😢");
     }
 }
